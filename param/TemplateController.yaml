@@ -1,0 +1,28 @@
+# Mass of the crazyflie
+mass : 28
+
+# Frequency of the controller, in hertz
+control_frequency : 200
+
+# Quadratic motor regression equation (a0, a1, a2)
+motorPoly : [5.484560e-4, 1.032633e-6, 2.130295e-11]
+
+# The min and max for saturating 16 bit thrust commands
+command_sixteenbit_min : 1000
+command_sixteenbit_max : 60000
+
+# The default setpoint, the ordering is (x,y,z,yaw),
+# with unit [meters,meters,meters,radians]
+default_setpoint : [0.0, 0.0, 0.4, 0.0]
+
+# Boolean indiciating whether the "Debug Message" of this agent should be published or not
+shouldPublishDebugMessage : false
+
+# Boolean indiciating whether the debugging ROS_INFO_STREAM should be displayed or not
+shouldDisplayDebugInfo : false
+
+# The LQR Controller parameters for rate mode
+gainMatrixThrust_NineStateVector    :  [ 0.00, 0.00, 0.98, 0.00, 0.00, 0.25, 0.00, 0.00, 0.00]
+gainMatrixRollRate                  :  [ 0.00,-6.20, 0.00, 0.00,-3.00, 0.00, 5.20, 0.00, 0.00]
+gainMatrixPitchRate                 :  [ 6.20, 0.00, 0.00, 3.00, 0.00, 0.00, 0.00, 5.20, 0.00]
+gainMatrixYawRate                   :  [ 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 2.30]

@@ -1,0 +1,2 @@
+string objectName
+bool shouldSubscribe

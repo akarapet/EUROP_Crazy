@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Trajectories/.idea/Trajectories.iml" filepath="$PROJECT_DIR$/../Trajectories/.idea/Trajectories.iml" />
+      <module fileurl="file://$USER_HOME$/crazyflie-lib-python/.idea/crazyflie-lib-python.iml" filepath="$USER_HOME$/crazyflie-lib-python/.idea/crazyflie-lib-python.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../crazyflie_demo/.idea/crazyflie_demo.iml" filepath="$PROJECT_DIR$/../../crazyflie_demo/.idea/crazyflie_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../crazyflie_driver/.idea/crazyflie_driver.iml" filepath="$PROJECT_DIR$/../../crazyflie_driver/.idea/crazyflie_driver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/crazyradio.iml" filepath="$PROJECT_DIR$/.idea/crazyradio.iml" />
+    </modules>
+  </component>
+</project>

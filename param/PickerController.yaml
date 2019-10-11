@@ -1,0 +1,78 @@
+
+# Max setpoint change per second
+max_setpoint_change_per_second_horizontal  :  0.20 # [meters]
+max_setpoint_change_per_second_vertical    :  0.10 # [meters]
+max_setpoint_change_per_second_yaw_degrees : 180.00 # [degrees]
+
+
+
+
+
+
+
+
+
+# ------------------------------------------------------
+# PARAMTERS THAT ARE STANDARD FOR A "CONTROLLER SERVICE"
+
+# Mass of the crazyflie
+mass_cf_in_grams : 32
+
+# Frequency of the controller, in hertz
+control_frequency : 200
+
+# Quadratic motor regression equation (a0, a1, a2)
+motorPoly : [5.484560e-4, 1.032633e-6, 2.130295e-11]
+
+# Boolean for whether to execute the convert into body frame function
+shouldPerformConvertIntoBodyFrame : true
+
+# Boolean indiciating whether the (x,y,z,yaw) of this agent should be published or not
+#shouldPublishCurrent_xyz_yaw : true
+
+# Boolean indiciating whether the "Debug Message" of this agent should be published or not
+shouldPublishDebugMessage : false
+
+# Boolean indiciating whether the debugging ROS_INFO_STREAM should be displayed or not
+shouldDisplayDebugInfo : false
+
+# A flag for which estimator to use, defined as:
+# 1  -  Finite Different Method,
+#       Takes the poisition and angles directly as measured,
+#       and estimates the velocities as a finite different to the
+#       previous measurement
+# 2  -  Point Mass Per Dimension Method
+#       Uses a 2nd order random walk estimator independently for
+#       each of (x,y,z,roll,pitch,yaw)
+# 3  -  Quad-rotor Model Based Method
+#       Uses the model of the quad-rotor and the previous inputs
+estimator_method : 1
+
+
+# The LQR Controller parameters for "mode = 3"
+gainMatrixThrust_NineStateVector    :  [ 0.00, 0.00, 0.98, 0.00, 0.00, 0.25, 0.00, 0.00, 0.00]
+gainMatrixRollRate                  :  [ 0.00,-6.20, 0.00, 0.00,-3.00, 0.00, 5.20, 0.00, 0.00]
+gainMatrixPitchRate                 :  [ 6.20, 0.00, 0.00, 3.00, 0.00, 0.00, 0.00, 5.20, 0.00]
+gainMatrixYawRate                   :  [ 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 2.30]
+
+
+# The max and minimum thrust for a 16-bit command
+command_sixteenbit_min : 1000
+command_sixteenbit_max : 60000
+
+
+# THE POINT MASS KALMAN FILTER (PMKF) GAINS AND ERROR EVOLUATION
+# > For the (x,y,z) position
+PMKF_Ahat_row1_for_positions  :  [  0.6723, 0.0034]
+PMKF_Ahat_row2_for_positions  :  [-12.9648, 0.9352]
+PMKF_Kinf_for_positions       :  [  0.3277,12.9648]
+
+
+# > For the (roll,pitch,yaw) angles
+PMKF_Ahat_row1_for_angles     :  [  0.6954, 0.0035]
+PMKF_Ahat_row2_for_angles     :  [-11.0342, 0.9448]
+PMKF_Kinf_for_angles          :  [  0.3046,11.0342]
+
+#PMKF_Ahat_row1_for_angles     :  [  0.6723, 0.0034]
+#PMKF_Ahat_row2_for_angles     :  [-12.9648, 0.9352]
+#PMKF_Kinf_for_angles          :  [  0.3277,12.9648]

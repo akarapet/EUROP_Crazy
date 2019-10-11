@@ -1,0 +1,26 @@
+#equlibrium offset
+mass : 29
+#quadratic motor regression equation (a0, a1, a2)
+motorPoly: [5.484560e-4, 1.032633e-6, 2.130295e-11]
+
+#feedback gain matrix
+gainMatrixRoll: [0, -1.714330725, 0, 0, -1.337107465, 0, 5.115369735, 0, 0]
+gainMatrixPitch: [1.714330725, 0, 0, 1.337107465, 0, 0, 0, 5.115369735, 0]
+gainMatrixYaw: [0, 0, 0, 0, 0, 0, 0, 0, 2.843099534]
+gainMatrixThrust: [0, 0, 0.19195826, 0, 0, 0.08362477, 0, 0, 0]
+
+#kalman filter
+filterGain: [1, 1, 1, 22.3384, 22.3384, 22.3384] #K_infinite of feedback
+estimatorMatrix: [-22.3384, 0.9106] #only for velocity calculation
+
+#setpoint in meters (x, y, z, yaw)
+defaultSetpoint: [0.0, 0.0, 0.4, 0.0]
+
+#take off and landing parameters (in meters and seconds)
+takeOffDistance : 0.4
+landingDistance : -0.05
+durationTakeOff : 1.0
+durationLanding : 2.0
+
+# Liner Trayectory following parameters
+distanceThreshold : 0.5

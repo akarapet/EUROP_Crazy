@@ -1,0 +1,16 @@
+float64 vicon_x
+float64 vicon_y
+float64 vicon_z
+float64 vicon_yaw
+float64 vicon_pitch
+float64 vicon_roll
+float64 value_1
+float64 value_2
+float64 value_3
+float64 value_4
+float64 value_5
+float64 value_6
+float64 value_7
+float64 value_8
+float64 value_9
+float64 value_10

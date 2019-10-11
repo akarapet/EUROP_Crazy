@@ -1,0 +1,46 @@
+<launch>
+
+
+
+
+
+		<!-- CRAZY RADIO -->
+		<node
+			pkg    = "crazy_pkg"
+			name   = "CrazyRadio"
+			output = "screen"
+			type   = "CrazyRadio.py"
+			>
+		</node>
+
+
+                <!-- DEFAULT CONTROLLER -->
+		<node
+			pkg    = "crazy_pkg"
+			name   = "DefaultControllerService"
+			output = "screen"
+			type   = "DefaultControllerService"
+			>
+		</node>
+
+
+
+		<!-- FLYING AGENT CLIENT -->
+		<node
+			pkg    = "crazy_pkg"
+			name   = "FlyingAgentClient"
+			output = "screen"
+			type   = "FlyingAgentClient"
+			>
+			<rosparam
+				command = "load"
+				file    = "$(find crazy_pkg)/param/FlyingAgentClientConfig.yaml"
+				ns      = "ParameterService/FlyingAgentClientConfig"
+			/>
+		</node>
+
+		
+
+
+
+</launch>

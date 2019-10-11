@@ -1,0 +1,14 @@
+# Frequency of requesting the battery voltage, in [milliseconds]
+battery_polling_period: 200
+
+# Battery thresholds while in the "motors off" state, in [Volts]
+battery_voltage_threshold_lower_while_standby: 3.30
+battery_voltage_threshold_upper_while_standby: 4.20
+
+# Battery thresholds while in the "flying" state, in [Volts]
+battery_voltage_threshold_lower_while_flying: 2.60
+battery_voltage_threshold_upper_while_flying: 3.70
+
+# Delay before changing the state of the battery, in [number of measurements]
+# > Note that the delay in seconds therefore depends on the polling period
+battery_delay_threshold_to_change_state: 5

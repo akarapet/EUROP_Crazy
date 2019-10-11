@@ -1,0 +1,24 @@
+# Mass of the crazyflie
+mass : 27
+
+# Frequency of the controller, in hertz
+control_frequency : 200
+
+# Quadratic motor regression equation (a0, a1, a2)
+motorPoly : [5.484560e-4, 1.032633e-6, 2.130295e-11]
+
+gainMatrixRollRate_Nested           :  [ 4.00, 0.00, 0.00]
+gainMatrixPitchRate_Nested          :  [ 0.00, 4.00, 0.00]
+gainMatrixYawRate_Nested            :  [ 0.00, 0.00, 2.30]
+
+# THE POINT MASS KALMAN FILTER (PMKF) GAINS AND ERROR EVOLUATION
+# > For the (x,y,z) position
+PMKF_Ahat_row1_for_positions  :  [  0.6723, 0.0034]
+PMKF_Ahat_row2_for_positions  :  [-12.9648, 0.9352]
+PMKF_Kinf_for_positions       :  [  0.3277,12.9648]
+
+
+# > For the (roll,pitch,yaw) angles
+PMKF_Ahat_row1_for_angles     :  [  0.6954, 0.0035]
+PMKF_Ahat_row2_for_angles     :  [-11.0342, 0.9448]
+PMKF_Kinf_for_angles          :  [  0.3046,11.0342]

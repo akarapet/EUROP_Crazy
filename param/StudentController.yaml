@@ -1,0 +1,12 @@
+# Mass of the crazyflie
+mass : 28
+
+# Frequency of the controller, in hertz
+control_frequency : 200
+
+# Quadratic motor regression equation (a0, a1, a2)
+motorPoly : [5.484560e-4, 1.032633e-6, 2.130295e-11]
+
+# The default setpoint, the ordering is (x,y,z,yaw),
+# with unit [meters,meters,meters,radians]
+default_setpoint : [0.0, 0.0, 0.4, 0.0]

@@ -1,0 +1,129 @@
+# ------------------------------------------------------
+# PARAMTERS FOR THE TAKE-OFF AND LANDING MANOEUVRES
+
+# Max setpoint change per second
+max_setpoint_change_per_second_horizontal  :  0.60 # [meters]
+max_setpoint_change_per_second_vertical    :  0.40 # [meters]
+
+# Max error for z
+max_setpoint_error_z: 0.4
+
+# Max error for xy
+max_setpoint_error_xy: 0.3
+
+# Max {roll,pitch} angle request
+max_roll_pitch_request_degrees: 30
+
+# Max error for yaw angle
+max_setpoint_error_yaw_degrees: 60
+
+# Theshold for {roll,pitch} angle beyond
+# which the motors are turned off
+threshold_roll_pitch_for_turn_off_degrees: 70
+
+# The thrust for take off spin motors
+takeoff_spin_motors_thrust: 8000
+# The time for: take off spin motors
+takoff_spin_motors_time: 0.8
+
+# Height change for the take off move-up
+takeoff_move_up_start_height: 0.1
+takeoff_move_up_end_height:   0.4
+# The time for: take off move-up
+takoff_move_up_time: 2.0
+
+# Minimum and maximum allowed time for: take off goto setpoint
+takoff_goto_setpoint_nearby_time: 1.0
+takoff_goto_setpoint_max_time: 4.0
+
+# Box within which to keep the integrator on
+# > Units of [meters]
+# > The box consider is plus/minus this value
+takoff_integrator_on_box_horizontal: 0.25
+takoff_integrator_on_box_vertical:   0.15
+# The time for: take off integrator-on
+takoff_integrator_on_time: 5.0
+
+
+# Height change for the landing move-down
+landing_move_down_end_height_setpoint:  0.05
+landing_move_down_end_height_threshold: 0.10
+# The time for: landing move-down
+landing_move_down_time_max: 5.0
+
+# The thrust for landing spin motors
+landing_spin_motors_thrust: 10000
+# The time for: landing spin motors
+landing_spin_motors_time: 1.5
+
+
+# IMPORTANT NOTE: the times above should NOT be set
+# to zero because this will cause a divide by zero
+# crash.
+
+
+# ------------------------------------------------------
+# PARAMTERS THAT ARE STANDARD FOR A "CONTROLLER SERVICE"
+
+# The mass of the crazyflie, in [grams]
+mass : 30
+
+# Frequency of the controller, in [hertz]
+control_frequency : 100
+
+# Quadratic motor regression equation (a0, a1, a2)
+motorPoly : [5.484560e-4, 1.032633e-6, 2.130295e-11]
+
+# The min and max for saturating 16 bit thrust commands
+command_sixteenbit_min : 1000
+command_sixteenbit_max : 60000
+
+# The default setpoint, the ordering is (x,y,z,yaw),
+# with unit [meters,meters,meters,radians]
+default_setpoint : [0.0, 0.0, 0.4, 0.0]
+
+# Boolean indiciating whether the "Debug Message" of this agent should be published or not
+shouldPublishDebugMessage : false
+
+# Boolean indiciating whether the debugging ROS_INFO_STREAM should be displayed or not
+shouldDisplayDebugInfo : false
+
+# A flag for which controller to use, defined as:
+# 1  -  Rate controller
+# 2  -  Angle-Rate nested controller
+controller_method : 2
+
+# The LQR Controller parameters for z-height
+gainMatrixThrust_2StateVector     :  [ 0.98, 0.25]
+# The LQR Controller parameters for mode 1 (the Rate controller)
+gainMatrixRollRate_3StateVector   :  [-6.20,-3.00, 5.20]
+gainMatrixPitchRate_3StateVector  :  [ 6.20, 3.00, 5.20]
+# The LQR Controller parameters for mode 2 (Angle-nested)
+gainMatrixRollAngle_2StateVector  :  [-0.80,-0.50]
+gainMatrixPitchAngle_2StateVector :  [ 0.80, 0.50]
+gainRollRate_fromAngle   :  4.00
+gainPitchRate_fromAngle  :  4.00
+# The LQR Controller parameters for yaw
+gainYawRate_fromAngle    :  2.30
+# Integrator gains
+integratorGain_forThrust  :  0.10
+integratorGain_forTauXY   :  0.06
+integratorGain_forTauYaw  :  0.05
+
+
+
+# A flag for which estimator to use, defined as:
+# 1  -  Finite Different Method,
+#       Takes the poisition and angles directly as measured,
+#       and estimates the velocities as a finite different to the
+#       previous measurement
+# 2  -  Point Mass Per Dimension Method
+#       Uses a 2nd order random walk estimator independently for
+#       each of (x,y,z,roll,pitch,yaw)
+estimator_method : 1
+
+# THE POINT MASS KALMAN FILTER (PMKF) GAINS AND ERROR EVOLUATION
+# > For the (x,y,z) position
+PMKF_Ahat_row1_for_positions  :  [  0.6723, 0.0034]
+PMKF_Ahat_row2_for_positions  :  [-12.9648, 0.9352]
+PMKF_Kinf_for_positions       :  [  0.3277,12.9648]
